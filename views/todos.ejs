@@ -8,34 +8,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Figure out where to put date -->
-    <h1>Todos Test</h1>
+    <h1>Daily Tasks</h1>
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span><%= creationDate %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has this many beers <%= left %> on their wishlist.</h2>
-
-    <!-- <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form> -->
-
     <form action="/todos/createTodo" method='POST'>
-      <select name ="todoItem">
-        <option value="pilsner">Pilsner</option>
-        <option value="porter">Porter</option>
-        <option value="dunkel">Dunkel</option>
-        <option value="lager">Lager</option>
-        <input type="submit">
-      </select>
-    </form>
+      <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+      <input type="submit">
+  </form>
+
+    <h2><%= user.userName %> has this many tasks <%= left %> to do today.</h2>
 
     <a href="/logout">Logout</a>
 
